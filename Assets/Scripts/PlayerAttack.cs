@@ -20,16 +20,32 @@ public class PlayerAttack : MonoBehaviour
     [Tooltip("플레이어 정면으로 생성될 거리")]
     public float bananaForwardOffset = 1.0f;
 
+    Player playerComponet;
+
+    private void Start()
+    {
+        playerComponet = GetComponent<Player>();
+    }
+
 
     void Update()
     {
+        
         if (Input.GetMouseButtonDown(0))
         {
+            if (playerComponet.hasWomen)
+            {
+                GameObject.FindGameObjectsWithTag("Women")[0].GetComponent<Women>().ThrowPapper();
+            }
             AttackSkill1();
         }
 
         if (Input.GetMouseButtonDown(1))
         {
+            if (playerComponet.hasWomen)
+            {
+                GameObject.FindGameObjectsWithTag("Women")[0].GetComponent<Women>().ThrowPapper();
+            }
             AttackSkill2();
         }
     }
@@ -39,7 +55,7 @@ public class PlayerAttack : MonoBehaviour
         Vector3 playerForward = transform.forward;
         Vector3 playerRight = transform.right;
 
-        // y축 높이가 적용된 발사 기준 위치
+
         Vector3 spawnOrigin = transform.position + (Vector3.up * spawnHeightOffset);
         Vector3 basePos = spawnOrigin + (playerForward * tomatoForwardOffset);
 

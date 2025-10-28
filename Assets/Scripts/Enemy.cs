@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     [Tooltip("Enemy를 따라다닐 Slider (hp)를 여기에 끌어다 놓으세요.")]
     public Slider healthSlider;
 
-    // UI 캔버스와 메인 카메라 참조
+
     private Canvas healthCanvas;
     private Camera mainCamera;
 
@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
             healthSlider.maxValue = maxHealth;
             healthSlider.value = currentHealth;
 
-            // 슬라이더의 부모 캔버스를 찾아서 저장
             healthCanvas = healthSlider.GetComponentInParent<Canvas>();
 
             if (healthCanvas == null)
@@ -45,11 +44,10 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-        // 캔버스가 존재하고, 카메라가 할당되었을 때
+
         if (healthCanvas != null && mainCamera != null)
         {
-            // 캔버스의 회전값을 카메라의 회전값과 강제로 동일하게 맞춤
-            // 이렇게 하면 Enemy(부모)가 회전해도 캔버스는 카메라만 바라봄
+
             healthCanvas.transform.rotation = mainCamera.transform.rotation;
         }
     }
@@ -76,7 +74,7 @@ public class Enemy : MonoBehaviour
 
     private void Die()
     {
-        // 캔버스가 할당되어 있다면 캔버스 오브젝트를 파괴
+
         if (healthCanvas != null)
         {
             Destroy(healthCanvas.gameObject);

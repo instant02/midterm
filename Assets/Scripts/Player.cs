@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public uint key = 0;
     public Text keyUI;
 
+
     public float fadeDuration = 1f;
     public float displayImageDuration = 1f;
     public CanvasGroup exitBackgroundImageCanvasGroup;
@@ -19,9 +20,28 @@ public class Player : MonoBehaviour
     float m_Timer;
     bool m_IsPlayerCaught;
 
+    public bool hasWomen = false;
+
+    public AudioSource exitAudio;
+    public AudioSource caughtAudio;
+    bool m_HasAudioPlayed = false;
+
+    
+
+
     void Start()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Women" && !hasWomen)
+        {
+            hasWomen = true;
+            collision.gameObject.GetComponent<Women>().playerTransform = transform;
+            Debug.Log("w");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,28 +63,23 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Plese Find Key");
             }
-            else if(key >=2 && !m_IsPlayerAtExit)
+            else if(key >=2 && !m_IsPlayerAtExit && hasWomen)
             {
                 m_IsPlayerAtExit = true;
                 
             }
         }
-    }
-
-    void RestartGame()
-    {
-
-        m_Timer += Time.deltaTime;
-
-        exitBackgroundImageCanvasGroup.alpha = m_Timer / fadeDuration;
-
-        if (m_Timer > fadeDuration + displayImageDuration)
+        
+        else if (other.tag == "Fireworks")
         {
-            Application.Quit();
+            other.gameObject.SetActive(false);
+            Debug.Log("f");
         }
     }
 
-    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart)
+
+
+    void EndLevel(CanvasGroup imageCanvasGroup, bool doRestart, AudioSource audioSource)
     {
         m_Timer += Time.deltaTime;
         imageCanvasGroup.alpha = m_Timer / fadeDuration;
@@ -80,6 +95,12 @@ public class Player : MonoBehaviour
                 Application.Quit();
             }
         }
+
+        if (!m_HasAudioPlayed)
+        {
+            m_HasAudioPlayed = true;
+            audioSource.Play();
+        }
     }
 
     // Update is called once per frame
@@ -87,11 +108,11 @@ public class Player : MonoBehaviour
     {
         if (m_IsPlayerAtExit)
         {
-            EndLevel(exitBackgroundImageCanvasGroup, false);
+            EndLevel(exitBackgroundImageCanvasGroup, false, exitAudio);
         }
         else if (m_IsPlayerCaught)
         {
-            EndLevel(caughtBackgroundImageCanvasGroup, true);
+            EndLevel(caughtBackgroundImageCanvasGroup, true, caughtAudio);
         }
     }
 

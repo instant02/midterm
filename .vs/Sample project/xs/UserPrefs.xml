@@ -1,16 +1,17 @@
 ﻿<Properties StartupConfiguration="{F1D5E222-CC66-006B-C662-A240643F608C}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Women.cs">
     <Files>
-      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="85" Column="6" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="58" Column="1" />
-      <File FileName="Assets/Scripts/WaypointPatrol.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player.cs" Line="93" Column="17" />
-      <File FileName="Assets/Scripts/PlayerAttack.cs" Line="58" Column="1" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="31" Column="20" />
-      <File FileName="Assets/Scripts/Women.cs" Line="11" Column="37" />
-      <File FileName="Assets/Scripts/Papper.cs" Line="18" Column="55" />
-      <File FileName="Assets/Scripts/Explosion.cs" Line="17" Column="56" />
-      <File FileName="Assets/Scripts/Tomato.cs" Line="13" Column="47" />
+      <File FileName="Assets/Scripts/PlayerMovement.cs" Line="106" Column="2" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="8" Column="32" />
+      <File FileName="Assets/Scripts/WaypointPatrol.cs" Line="26" Column="2" />
+      <File FileName="Assets/Scripts/Player.cs" Line="89" Column="31" />
+      <File FileName="Assets/Scripts/PlayerAttack.cs" Line="25" Column="10" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="102" Column="30" />
+      <File FileName="Assets/Scripts/Women.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/Papper.cs" Line="22" Column="57" />
+      <File FileName="Assets/Scripts/Explosion.cs" Line="37" Column="2" />
+      <File FileName="Assets/Scripts/Tomato.cs" Line="21" Column="18" />
+      <File FileName="Assets/Scripts/Banana.cs" Line="20" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,7 +19,7 @@
           <Node name="Sample project" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="PlayerMovement.cs" selected="True" />
+                <Node name="Women.cs" selected="True" />
               </Node>
             </Node>
           </Node>
@@ -28,7 +29,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="7b797d1c-4071-4488-bde2-8a32e0713a5f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bd808d2e-d377-40ac-b77c-a66d07da5e8f" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
